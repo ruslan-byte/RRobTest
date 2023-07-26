@@ -1,20 +1,48 @@
 <template>
-  <div class="container" >
-    <h2>Вам подходит 375 вариантов</h2>
-    <h3>Студия №2, 15.18 м</h3>
-    <h4>3-комнатная квартира № 262, 65.6 м²</h4>
-    <h5>Наш менеджер свяжется с вами для уточнения деталей</h5>
-    <a href="#">ЖК «Министерские озера» </a>
-    <p>Выбрать ЖК</p>
-    <ul>
-    	<li>Литер 14</li>
-    	<li>Этаж 10</li>
-    	<li>Сдача 1 кв. 2026</li>
-    </ul>
+  <div class="container">
+    <el-select
+      v-model="value"
+      class="m-2"
+      placeholder="Select"
+      size="large"
+    >
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
+    </el-select>
   </div>
 </template>
 <script>
   export default {
+    data(){
+      return{
+        value: "Option1",
+        options: [
+        {
+          value: 'Option1',
+          label: 'Любой',
+        },
+        {
+          value: 'Option2',
+          label: 'Option2',
+        },
+        {
+          value: 'Option3',
+          label: 'Option3',
+        },
+        {
+          value: 'Option4',
+          label: 'Option4',
+        },
+        {
+          value: 'Option5',
+          label: 'Option5',
+        },]
+      }
+    }
   }
 </script>
 
