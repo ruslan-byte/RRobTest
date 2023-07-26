@@ -11,3 +11,77 @@
 {
 	font-family: "Averta CY";
 }
+h2
+{
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 31px;
+}
+h3
+{
+	font-size: 20px;
+	font-weight: 700;
+}
+h4
+{
+	font-size: 16px;
+	font-weight: 600;
+}
+h5
+{
+	font-size: 16px;
+	font-weight: 300;
+	margin-bottom: 40px;
+}
+a
+{
+	display: inline-block;
+	color: $blue;
+	font-size: 14px;
+	line-height: 14px;
+	margin-bottom: 6px;
+	&:hover
+	{
+		text-decoration: underline;
+	}
+}
+p
+{
+	color: $gray;
+	font-size: 11px;
+	line-height: 11px;
+}
+
+ul
+{
+	display: flex;
+	justify-content: flex-start;
+	gap: 16px;
+}
+li
+{
+	color:$light-gray;
+	font-size: 14px;
+	position: relative;
+	&:not(:first-child)::before
+	{
+		content:"";
+		position:absolute;
+		left:-10px;
+		top:calc(50% - 2px);
+		background: $blue-second;
+		height: 4px;
+		width: 4px;
+		border-radius: 50%;
+	}
+}
+
+@media (min-width: $tablet)
+{
+	h2{font-size: 32px;}
+	h3{font-style: 28px;}
+}
+@media (min-width: $desktop)
+{
+	h2{font-size: 42px;}
+}
