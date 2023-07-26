@@ -2,9 +2,9 @@
   <div class="container">
     <el-select
       v-model="value"
-      class="m-2"
       placeholder="Select"
       size="large"
+      :suffixIcon="icon"
     >
       <el-option
         v-for="item in options"
@@ -16,9 +16,11 @@
   </div>
 </template>
 <script>
+  import arrowIcon from "./components/icons/arrow.vue"
   export default {
     data(){
       return{
+        icon:arrowIcon,
         value: "Option1",
         options: [
         {
@@ -47,5 +49,4 @@
 </script>
 
 <style>
-
 </style>

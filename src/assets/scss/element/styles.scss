@@ -1,6 +1,7 @@
-$--colors: (
+
+$colors: (
   "primary": (
-    "base": green,
+    "base": #FFC700,
   ),
   "success": (
     "base": #21ba45,
@@ -19,11 +20,9 @@ $--colors: (
   ),
 );
 
-
-// You should use them in scss, because we calculate it by sass.
-// comment next lines to use default color
 @forward "element-plus/theme-chalk/src/common/var.scss" with (
-  // do not use same name, it will override.
-  $colors: $--colors,
-  $button-padding-horizontal: ("default": 50px)
+  $colors: $colors,
+  $button-padding-horizontal: ("default": 50px),
+  $common-component-size: ("large": 46px),
+  $select: ("input-font-size": 8px),
 );
