@@ -1,6 +1,6 @@
 <template>
-  <div>
-    Новая страница
+  <div class="container" >
+    <h2>Вам подходит 375 вариантов</h2>
   </div>
 </template>
 <script>
