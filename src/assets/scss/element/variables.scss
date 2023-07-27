@@ -24,5 +24,10 @@ $colors: (
   $button-padding-horizontal: ("default": 50px),
   $common-component-size: ("large": 46px),
   $select: ("input-font-size": 8px),
-  $radio-button: ("input-border-radius": 50%)
+  $radio-button: ("input-border-radius": 50%),
+  $slider: (
+    "height": 1px,
+    "button-size" : 12px,
+    'button-wrapper-offset': -17px,
+    )
 );

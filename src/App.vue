@@ -30,15 +30,21 @@
           <el-radio-button label="3+" />
         </el-radio-group>
       </el-col>
-      <el-col :span="8">test
+      <el-col :span="3">
+        <RangeSlider :range="[1,1000
+        ]">
+          
+        </RangeSlider>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
   import { markRaw } from "vue";
-  import arrowIcon from "./components/icons/arrow.vue"
+  import arrowIcon from "./components/icons/arrow.vue";
+  import RangeSlider from "./components/RangeSlider.vue";
   export default {
+    components: ['RangeSlider'],
     data(){
       return{
         icon: markRaw(arrowIcon),
