@@ -1,3 +1,4 @@
+
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -29,7 +30,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "~/assets/scss/element/styles.scss" as *;`,
+        additionalData: `@use "~/assets/scss/element/variables.scss" as *;`,
       },
     },
   },

@@ -1,28 +1,28 @@
 
-$colors: (
-  "primary": (
-    "base": #FFC700,
-  ),
-  "success": (
-    "base": #21ba45,
-  ),
-  "warning": (
-    "base": #f2711c,
-  ),
-  "danger": (
-    "base": #db2828,
-  ),
-  "error": (
-    "base": #db2828,
-  ),
-  "info": (
-    "base": #42b8dd,
-  ),
-);
-
-@forward "element-plus/theme-chalk/src/common/var.scss" with (
-  $colors: $colors,
-  $button-padding-horizontal: ("default": 50px),
-  $common-component-size: ("large": 46px),
-  $select: ("input-font-size": 8px),
-);
+//radio-group
+.el-radio-group
+{
+	gap: 11px;
+	.el-radio-button.el-radio-button--large
+	{
+		border: 1px solid $default-border-color;
+		border-radius: 50%;
+		height: 45px;
+		width: 45px;
+		transition: var(--el-transition-all);
+		&.is-active,
+		&:hover
+		{
+			border-color: $accent-color
+		}
+	}
+	.el-radio-button.el-radio-button--large .el-radio-button__inner
+	{
+		border:none;
+		border-radius: 50%;
+		width: 100%;
+		line-height: 20px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
