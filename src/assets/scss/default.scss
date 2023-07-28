@@ -57,24 +57,25 @@ ul.g-list
 	display: flex;
 	justify-content: flex-start;
 	gap: 16px;
-}
-li
-{
-	color:$light-gray;
-	font-size: 14px;
-	position: relative;
-	&:not(:first-child)::before
+	li
 	{
-		content:"";
-		position:absolute;
-		left:-10px;
-		top:calc(50% - 2px);
-		background: $blue-second;
-		height: 4px;
-		width: 4px;
-		border-radius: 50%;
+		color:$light-gray;
+		font-size: 14px;
+		position: relative;
+		&:not(:first-child)::before
+		{
+			content:"";
+			position:absolute;
+			left:-10px;
+			top:calc(50% - 2px);
+			background: $blue-second;
+			height: 4px;
+			width: 4px;
+			border-radius: 50%;
+		}
 	}
 }
+
 
 @media (min-width: $tablet)
 {

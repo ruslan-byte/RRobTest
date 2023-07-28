@@ -29,5 +29,10 @@ $colors: (
     "height": 1px,
     "button-size" : 12px,
     'button-wrapper-offset': -17px,
-    )
+    ),
+  $pagination: (
+   'button-width': 17px,
+   'button-height': 27px,
+   "font-size": 18px 
+  ),
 );

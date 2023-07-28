@@ -39,6 +39,7 @@
     </el-row>
     <ToggleCartType/>
     <ToggleSortParams/>
+    <el-pagination layout="pager" :total="30" />
   </div>
 </template>
 <script>
