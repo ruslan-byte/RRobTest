@@ -1,4 +1,4 @@
-<template>
+F<template>
   <div class="app container">
     <Header />
   </div>
@@ -10,9 +10,10 @@
   }
 </script>
 
-<style>
-  .app.container
+<style lang="scss">
+  .app.container {padding-top: 60px; }
+  @media (min-width: $tablet)
   {
-    padding-top: 92px;
+    .app.container {padding-top: 80px; }
   }
 </style>

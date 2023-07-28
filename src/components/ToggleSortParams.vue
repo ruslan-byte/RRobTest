@@ -68,6 +68,7 @@
 	p
 	{
 		font-size: 14px;
+		margin: 0;
 	}
 }
 @media (min-width: $tablet)
