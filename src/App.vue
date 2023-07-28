@@ -11,4 +11,8 @@
 </script>
 
 <style>
+  .app.container
+  {
+    padding-top: 92px;
+  }
 </style>

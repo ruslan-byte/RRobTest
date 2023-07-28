@@ -60,7 +60,6 @@
 </script>
 
 <style lang="scss">
-@use '../assets/scss/variables.scss' as *;
 
 .range-slider
 {

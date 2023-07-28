@@ -6,19 +6,19 @@
 				<label>
 					<p>Выбрать жк</p>
 					<el-select
-					class="select"
-					v-model="selectExample.value"
-					placeholder="Select"
-					size="large"
-					:suffixIcon="selectExample.arrow"
-				  >
-					<el-option
-					  v-for="item in selectExample.options"
-					  :key="item.value"
-					  :label="item.label"
-					  :value="item.value"
-					/>
-				  </el-select>
+						class="select"
+						v-model="selectExample.value"
+						placeholder="Select"
+						size="large"
+						:suffixIcon="selectExample.arrow"
+					>
+						<el-option
+							v-for="item in selectExample.options"
+							:key="item.value"
+							:label="item.label"
+							:value="item.value"
+						/>
+					</el-select>
 				</label>
 			</el-col>
 			<el-col>
@@ -41,8 +41,35 @@
 			<el-col>
 				<label>
 					<p>Стоимость, млн ₽ </p>
-					<range-slider :range="[17, 162]" isFloat/>
+					<range-slider :range="[25, 245]" isFloat/>
 				</label>
+			</el-col>
+			<el-col>
+				<label>
+					<p>Выбрать корпус</p>
+					<el-select
+						class="select"
+						v-model="selectExample.value"
+						placeholder="Select"
+						size="large"
+						:suffixIcon="selectExample.arrow"
+					>
+						<el-option
+							v-for="item in selectExample.options"
+							:key="item.value"
+							:label="item.label"
+							:value="item.value"
+						/>
+					</el-select>
+				</label>
+			</el-col>
+		</el-row>
+		<el-row>
+			<el-col>
+				<toggle-sort-params />
+			</el-col>
+			<el-col>
+				<toggle-card-type />
 			</el-col>
 		</el-row>
 	</header>
@@ -50,8 +77,14 @@
 <script>
 	import arrowIcon from "@/components/icons/arrow.svg";
 	import RangeSlider from "@/components/RangeSlider.vue";
+	import toggleSortParams from "@/components/toggleSortParams.vue";
+	import toggleCardType from "@/components/toggleCardType.vue";
 	export default {
-		components: {'range-slider': RangeSlider},
+		components: {
+			'range-slider': RangeSlider,
+			'toggle-sort-params': toggleSortParams,
+			'toggle-card-type': toggleCardType
+		},
 		data(){
 			return {
 				selectExample: {
@@ -87,6 +120,18 @@
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+	.header
+	{
+		border-top: 1px solid $default-border-color;
+		padding-top: 32px;
+		h2
+		{
+			margin-bottom: 60px;
+		}
+		.el-col
+		{
+			margin-bottom: 20px;
+		}
+	}
 </style>

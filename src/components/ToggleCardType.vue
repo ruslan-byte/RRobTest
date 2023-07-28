@@ -23,7 +23,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "~/assets/scss/variables.scss" as *; 
 .toggleCartType.el-radio-group
 {
 	gap: 6px;
