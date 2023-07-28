@@ -2,11 +2,11 @@
 	<div class="range-slider">
 		<el-input
 			class="range-slider__input"
-			:value="value[0]" 
+			:value="minInput" 
 		/>
 		<el-input
 			class="range-slider__input"
-			:value="value[1]" 
+			:value="maxInput" 
 		/>
 		<el-slider
 			class="range-slider__slider"
@@ -25,6 +25,7 @@
 				type: Array,
 				default: [10, 100]
 			},
+			isFloat: Boolean
 		},
 		data() {
 			return {
@@ -36,6 +37,24 @@
 		created()
 		{
 			this.value = this.range;
+		},
+		computed:
+		{
+			minInput()
+			{
+				return (this.isFloat) ? this.convertNumberToFloat(this.value[0]) : this.value[0];
+			},
+			maxInput()
+			{
+				return (this.isFloat) ? this.convertNumberToFloat(this.value[1]) : this.value[1];
+			}
+		},
+		methods: {
+			convertNumberToFloat(number) {
+				number = ('' + number).split('');
+				number.push(',' + number.pop());
+				return number.join('');
+			}
 		}
 	}
 </script>
