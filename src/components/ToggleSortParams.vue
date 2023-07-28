@@ -57,8 +57,8 @@
 		color:$gray;
 		svg
 		{
-			margin-left: 8px;
-			margin-right: 5px;
+			margin-left: 1px;
+			margin-right: 8px;
 			transition: var(--el-transition-all);
 		}
 		&--active svg
