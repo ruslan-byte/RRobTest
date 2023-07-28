@@ -16,4 +16,8 @@ F<template>
   {
     .app.container {padding-top: 80px; }
   }
+  @media (min-width: $desktop)
+  {
+    .app.container {padding-top: 100px; }
+  }
 </style>

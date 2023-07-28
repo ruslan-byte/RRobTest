@@ -88,4 +88,8 @@
 		p {font-size: 16px;}
 	}
 }
+@media (min-width: $desktop)
+{
+	.toggle-sort-params{gap:15px}
+}
 </style>
