@@ -37,17 +37,22 @@
         </RangeSlider>
       </el-col>
     </el-row>
+    <ToggleCartType/>
+    <ToggleSortParams/>
   </div>
 </template>
 <script>
   import { markRaw } from "vue";
-  import arrowIcon from "./components/icons/arrow.vue";
+  import ToggleCartType from "./components/ToggleCartType.vue";
+  import ToggleSortParams from "./components/ToggleSortParams.vue";
+  import arrowIcon from "./components/icons/arrow.svg";
+  import testIcon from "./components/icons/list.svg";
   import RangeSlider from "./components/RangeSlider.vue";
   export default {
-    components: ['RangeSlider'],
+    components: ['RangeSlider', 'testIcon','ToggleCartType','ToggleSortParams'],
     data(){
       return{
-        icon: markRaw(arrowIcon),
+        icon: arrowIcon,
         radio1:'1',
         value: "Option1",
         options: [
