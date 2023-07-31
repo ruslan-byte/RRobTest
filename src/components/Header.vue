@@ -1,115 +1,117 @@
 <template>
 	<header class="header">
 		<h2 class="header__title">Вам подходит 375 вариантов</h2>
-		<el-row :gutter="30">
-			<el-col
-				class="header__select"
-				:md="4"
-				:lg="5"
-				:sm="12"
-			>
-				<label>
-					<p>Выбрать ЖК</p>
-					<el-select
-						v-model="selectData.value"
-						placeholder="Select"
-						size="large"
-						:suffixIcon="selectData.arrow"
-					>
-						<el-option
-							v-for="(option, key) in selectData.options"
-							:key="`${key}-${option.value}`"
-							:label="option.label"
-							:value="option.value"
-						/>
-					</el-select>
-				</label>
+		<form @submit.prevent>
+			<el-row :gutter="30">
+				<el-col
+					class="header__select"
+					:md="4"
+					:lg="5"
+					:sm="12"
+				>
+					<label>
+						<p>Выбрать ЖК</p>
+						<el-select
+							v-model="selectData.value"
+							placeholder="Select"
+							size="large"
+							:suffixIcon="selectData.arrow"
+						>
+							<el-option
+								v-for="(option, key) in selectData.options"
+								:key="`${key}-${option.value}`"
+								:label="option.label"
+								:value="option.value"
+							/>
+						</el-select>
+					</label>
+				</el-col>
+				<el-col 
+					class="header__select header__select--desktop"
+					:sm="12"
+				>
+					<label>
+						<p>Выбрать корпус</p>
+						<el-select
+							v-model="selectData.value"
+							placeholder="Select"
+							size="large"
+							:suffixIcon="selectData.arrow"
+						>
+							<el-option
+								v-for="(option, key) in selectData.options"
+								:key="`${key}-${option.value}`"
+								:label="option.label"
+								:value="option.value"
+							/>
+						</el-select>
+					</label>
+				</el-col>
+				<el-col
+					:md="6"
+					:lg="5"
+					:sm="8"
+				>
+					<p>Комнатность</p>
+					<el-radio-group v-model="radioData" size="large">
+						<el-radio-button label="Ст"  />
+						<el-radio-button label="1" />
+						<el-radio-button label="2" />
+						<el-radio-button label="3+" />
+					</el-radio-group>
+				</el-col>
+				<el-col
+					:md="4"
+					:lg="4"
+					:sm="8"
+				>
+					<label>
+						<p>Площадь, м2 </p>
+						<range-slider :range="[17, 162]"/>
+					</label>
+				</el-col>
+				<el-col
+					:md="6"
+					:lg="5"
+					:sm="8"
+				>
+					<label>
+						<p>Стоимость, млн ₽ </p>
+						<range-slider :range="[25, 245]" isFloat/>
+					</label>
+				</el-col>
+				<el-col
+					class="header__select header__select--mobile"
+					:md="4"
+					:lg="5"
+				>
+					<label>
+						<p>Выбрать корпус</p>
+						<el-select
+							v-model="selectData.value"
+							placeholder="Select"
+							size="large"
+							:suffixIcon="selectData.arrow"
+						>
+							<el-option
+								v-for="(option, key) in selectData.options"
+								:key="`${key}-${option.value}`"
+								:label="option.label"
+								:value="option.value"
+							/>
+						</el-select>
+					</label>
 			</el-col>
-			<el-col 
-				class="header__select header__select--desktop"
-				:sm="12"
-			>
-				<label>
-					<p>Выбрать корпус</p>
-					<el-select
-						v-model="selectData.value"
-						placeholder="Select"
-						size="large"
-						:suffixIcon="selectData.arrow"
-					>
-						<el-option
-							v-for="(option, key) in selectData.options"
-							:key="`${key}-${option.value}`"
-							:label="option.label"
-							:value="option.value"
-						/>
-					</el-select>
-				</label>
-			</el-col>
-			<el-col
-				:md="6"
-				:lg="5"
-				:sm="8"
-			>
-				<p>Комнатность</p>
-				<el-radio-group v-model="radioData" size="large">
-					<el-radio-button label="Ст"  />
-					<el-radio-button label="1" />
-					<el-radio-button label="2" />
-					<el-radio-button label="3+" />
-				</el-radio-group>
-			</el-col>
-			<el-col
-				:md="4"
-				:lg="4"
-				:sm="8"
-			>
-				<label>
-					<p>Площадь, м2 </p>
-					<range-slider :range="[17, 162]"/>
-				</label>
-			</el-col>
-			<el-col
-				:md="6"
-				:lg="5"
-				:sm="8"
-			>
-				<label>
-					<p>Стоимость, млн ₽ </p>
-					<range-slider :range="[25, 245]" isFloat/>
-				</label>
-			</el-col>
-			<el-col
-				class="header__select header__select--mobile"
-				:md="4"
-				:lg="5"
-			>
-				<label>
-					<p>Выбрать корпус</p>
-					<el-select
-						v-model="selectData.value"
-						placeholder="Select"
-						size="large"
-						:suffixIcon="selectData.arrow"
-					>
-						<el-option
-							v-for="(option, key) in selectData.options"
-							:key="`${key}-${option.value}`"
-							:label="option.label"
-							:value="option.value"
-						/>
-					</el-select>
-				</label>
-		</el-col>
-		</el-row>
-		<el-row  class="header__toggles" justify="space-between" align="middle">
-			<el-col :span="12" class="header__toggle">
-				<toggle-sort-params />
-			</el-col>
-			<el-col :span="12" class="header__toggle">
-				<toggle-card-type />
-			</el-col>
-		</el-row>
+			</el-row>
+			<el-row  class="header__toggles" justify="space-between" align="middle">
+				<el-col :span="12" class="header__toggle">
+					<toggle-sort-params />
+				</el-col>
+				<el-col :span="12" class="header__toggle">
+					<toggle-card-type />
+				</el-col>
+			</el-row>
+		</form>
 	</header>
 </template>
 <script>
