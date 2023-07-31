@@ -1,7 +1,5 @@
-@import './scss/reset.scss';
-@import './scss/fonts.scss';
-@import './scss/variables.scss';
-@import './scss/default.scss';
-
-// element
-@import './scss/element/styles.scss';
+@import '@/assets/scss/reset.scss';
+@import '@/assets/scss/fonts.scss';
+@import '@/assets/scss/variables.scss';
+@import '@/assets/scss/default.scss';
+@import '@/assets/scss/element/styles.scss';
