@@ -102,7 +102,7 @@
 				</label>
 		</el-col>
 		</el-row>
-		<el-row  justify="space-between" align="middle">
+		<el-row  class="header__toggles" justify="space-between" align="middle">
 			<el-col :span="12" class="header__toggle">
 				<toggle-sort-params />
 			</el-col>
@@ -164,7 +164,13 @@
 		h2 {margin-bottom: 60px; }
 		.el-col {margin-bottom: 24px; }
 		.header__select--desktop {display: none; }
-		.header__toggle{flex:unset; max-width: unset;}
+		.header__toggle
+		{
+			flex:unset;
+			max-width: unset;
+			margin: 0;
+		}
+		.header__toggles {gap: 24px; }
 	}
 	@media (min-width: $tablet)
 	{
@@ -173,6 +179,7 @@
 			padding-top: 40px;
 			h2{margin-bottom: 80px;}
 			.el-row{margin-bottom: 6px;}
+			.header__toggles{margin: 0;}
 			.header__select .el-select{width: 100%;}
 			.header__select--desktop{display: block;}
 			.header__select--mobile{display: none;}
@@ -185,13 +192,10 @@
 			padding-top: 40px;
 			h2{margin-bottom: 86px;}
 			.el-row{margin-bottom: 26px;}
+			.header__toggles{margin: 0;}
 			.header__select .el-select{width: 100%;}
 			.header__select--desktop{display: none;}
 			.header__select--mobile{display: block;}
 		}
-	}
-	@media (min-width: $widescreen)
-	{
-			.header {padding-top: 60px; }
 	}
 </style>
