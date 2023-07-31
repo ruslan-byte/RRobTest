@@ -11,16 +11,16 @@
 				<label>
 					<p>Выбрать ЖК</p>
 					<el-select
-						v-model="selectExample.value"
+						v-model="selectData.value"
 						placeholder="Select"
 						size="large"
-						:suffixIcon="selectExample.arrow"
+						:suffixIcon="selectData.arrow"
 					>
 						<el-option
-							v-for="item in selectExample.options"
-							:key="item.value"
-							:label="item.label"
-							:value="item.value"
+							v-for="(option, key) in selectData.options"
+							:key="`${key}-${option.value}`"
+							:label="option.label"
+							:value="option.value"
 						/>
 					</el-select>
 				</label>
@@ -32,16 +32,16 @@
 				<label>
 					<p>Выбрать корпус</p>
 					<el-select
-						v-model="selectExample.value"
+						v-model="selectData.value"
 						placeholder="Select"
 						size="large"
-						:suffixIcon="selectExample.arrow"
+						:suffixIcon="selectData.arrow"
 					>
 						<el-option
-							v-for="item in selectExample.options"
-							:key="item.value"
-							:label="item.label"
-							:value="item.value"
+							v-for="(option, key) in selectData.options"
+							:key="`${key}-${option.value}`"
+							:label="option.label"
+							:value="option.value"
 						/>
 					</el-select>
 				</label>
@@ -87,16 +87,16 @@
 				<label>
 					<p>Выбрать корпус</p>
 					<el-select
-						v-model="selectExample.value"
+						v-model="selectData.value"
 						placeholder="Select"
 						size="large"
-						:suffixIcon="selectExample.arrow"
+						:suffixIcon="selectData.arrow"
 					>
 						<el-option
-							v-for="item in selectExample.options"
-							:key="item.value"
-							:label="item.label"
-							:value="item.value"
+							v-for="(option, key) in selectData.options"
+							:key="`${key}-${option.value}`"
+							:label="option.label"
+							:value="option.value"
 						/>
 					</el-select>
 				</label>
@@ -124,38 +124,35 @@
 			'toggle-sort-params': toggleSortParams,
 			'toggle-card-type': toggleCardType
 		},
-		data(){
-			return {
-				selectExample: {
-					arrow: markRaw(arrowIcon),
-					value: "all",
-					options: [
-						{
-							value: 'all',
-							label: 'Любой',
-						},
-						{
-							value: 'Option2',
-							label: 'Option2',
-						},
-						{
-							value: 'Option3',
-							label: 'Option3',
-						},
-						{
-							value: 'Option4',
-							label: 'Option4',
-						},
-						{
-							value: 'Option5',
-							label: 'Option5',
-						},
-					]
-				},
-				radioData: '1',
-			}
-
-		}
+		data: () => ({
+			selectData: {
+				arrow: markRaw(arrowIcon),
+				value: "all",
+				options: [
+					{
+						value: 'all',
+						label: 'Любой',
+					},
+					{
+						value: 'Option2',
+						label: 'Option2',
+					},
+					{
+						value: 'Option3',
+						label: 'Option3',
+					},
+					{
+						value: 'Option4',
+						label: 'Option4',
+					},
+					{
+						value: 'Option5',
+						label: 'Option5',
+					},
+				]
+			},
+			radioData: '1',
+		})
 	}
 </script>
 
@@ -164,18 +161,9 @@
 	{
 		border-top: 1px solid $default-border-color;
 		padding-top: 32px;
-		h2
-		{
-			margin-bottom: 60px;
-		}
-		.el-col
-		{
-			margin-bottom: 24px;
-		}
-		.header__select--desktop
-		{
-			display: none;
-		}
+		h2 {margin-bottom: 60px; }
+		.el-col {margin-bottom: 24px; }
+		.header__select--desktop {display: none; }
 		.header__toggle{flex:unset; max-width: unset;}
 	}
 	@media (min-width: $tablet)

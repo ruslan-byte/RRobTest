@@ -27,16 +27,16 @@
 			},
 			isFloat: Boolean
 		},
-		data() {
-			return {
-				maxValue: this.range[1],
-				minValue: this.range[0],
+		data: () => ({
+				maxValue: null,
+				minValue: null,
 				value: null
-			}
-		},
+		}),
 		created()
 		{
 			this.value = this.range;
+			this.maxValue = this.range[1];
+			this.minValue = this.range[0];
 		},
 		computed:
 		{
@@ -86,7 +86,7 @@
 	box-shadow: none;
 	border:none;
 	border-radius: 4px;
-    pointer-events: none;
+	pointer-events: none;
 }
 .range-slider__input .el-input__inner
 {

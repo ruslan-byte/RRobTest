@@ -20,15 +20,13 @@
 	</div>
 </template>
 <script>
-	import arrowIcon from './icons/arrow.svg'	
+	import arrowIcon from '@/components/icons/arrow.svg'	
 	export default {
 		components:{'arrow-icon': arrowIcon},
-		data() {
-			return {
+		data: () => ({
 				isSpaceTop: false,
 				isPriceTop: true
-			}
-		},
+		}),
 		methods:
 		{
 			toggleSortPrice()
@@ -43,7 +41,7 @@
 	}
 </script>
 
-<style lang=scss>
+<style lang="scss">
 .toggle-sort-params
 {
 	font-weight: 300;

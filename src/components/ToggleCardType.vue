@@ -1,29 +1,24 @@
 <template>
-	<el-radio-group class="toggleCartType" v-model="isCartTypeList" size="large">
+	<el-radio-group class="toggle-cart-type" v-model="isCartTypeList" size="large">
 		<el-radio-button :label="false">
-			<cartIcon/>
+			<card-icon/>
 		</el-radio-button>
 		<el-radio-button :label="true">
-			<listIcon/>
+			<list-icon/>
 		</el-radio-button>
 	</el-radio-group>
 </template>
 <script>
-import listIcon from './icons/list.svg'
-import cartIcon from './icons/cards.svg'
+import listIcon from '@/components/icons/list.svg'
+import cardIcon from '@/components/icons/cards.svg'
 export default {
-	components:{listIcon, cartIcon},
-	data()
-	{
-		return {
-			isCartTypeList: false,
-		}
-	}
+	components:{'list-icon': listIcon, 'card-icon': cardIcon},
+	data: () => ({ isCartTypeList: false }),
 }
 </script>
 
 <style lang="scss">
-.toggleCartType.el-radio-group
+.toggle-cart-type
 {
 	gap: 6px;
 	svg 
