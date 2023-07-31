@@ -27,3 +27,25 @@
 }
 //pagination
 .el-pager li {font-weight: 600}
+
+.el-popper.is-card
+{
+	background: $accent-color;
+	color: $white;
+}
+.el-popper.is-card .el-popper__arrow::before
+{
+	background: $accent-color;
+}
+
+.el-popper.is-tag
+{
+	color: $blue-second;
+	background: $blue-light;
+	padding: 6px 16px;
+	white-space: pre-wrap;
+}
+.el-popper.is-tag .el-popper__arrow::before
+{
+	background: transparent;
+}

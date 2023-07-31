@@ -1,0 +1,178 @@
+<template>
+	<div class="card">
+		<picture class="card__image">
+			<img src="img/card.png" alt="card">
+		</picture>
+		<div class="card__titles">
+			<button> ЖК «Министерские озера» </button>
+			<h4>3-комнатная квартира № 262, 65.6 м²</h4>
+		</div>
+		<ul class="g-list">
+			<li>Литер 14</li>
+			<li>Этаж 10</li>
+			<li>Сдача 1 кв. 2026</li>
+		</ul>
+		<div class="card__prices">
+			<div>
+				<span class="card__price card__price--new"> 12 886 400 ₽ </span>
+				<span class="card__price card__price--old"> 12 886 400 ₽ </span>
+			</div>
+			<span class="card__sale">10% </span>
+		</div>
+		<div class="card__tags">
+			<template v-for="(name, id) in tags">
+				<div class="card__tag" v-if="id < 2"> {{name}}  </div>
+				<el-tooltip
+					effect="tag"
+					v-else-if="tags.length - 1 == id"
+					:content="hideTagsList"
+					placement="right-start"
+				>
+					<div class="card__tag"> +{{ hideTagsCount }}  </div>
+				</el-tooltip>
+			</template>
+		</div>
+		<el-tooltip content="Акция: Подарок" effect="card">
+			<span class="card__event"><fire-icon/></span>
+		</el-tooltip>
+		<div class="card__buttons">
+			<span class="card__button"><heard-icon/></span>
+			<span class="card__button"><scales-icon/></span>
+		</div>
+	</div>
+</template>
+<script>
+	import fire from "@/components/icons/fire.svg"
+	import heard from "@/components/icons/heard.svg"
+	import scales from "@/components/icons/scales.svg"
+	export default {
+		components: {
+			'fire-icon': fire,
+			'heard-icon': heard,
+			'scales-icon': scales
+		},
+		data: () =>({
+			tags: [ 'Отделка', 'Вид на горы', 'Лоджия', 'Рассрочка' ]
+		}),
+		computed:
+		{
+			hideTagsCount(){
+				return this.tags.length - 2;
+			},
+			hideTagsList()
+			{
+				let hideTagsList = this.tags.reduce((tagList, item, index)=>{
+					return (index>=2) ? tagList + item + '\r\n' : tagList
+				},'');
+				return hideTagsList;
+			}
+		}
+	} 
+</script>
+
+<style lang="scss">
+.card
+{
+	position: relative;
+	background: $white;
+	padding: 30px 20px 24px 20px;
+	border: 1px solid #EAEAEA;
+	&__image
+	{
+		display: block;
+		height: 236px;
+		width: 100%;
+		margin-bottom: 28px;
+		img
+		{
+			display: block;
+			height: 100%;
+			width: 100%;
+			object-fit:contain;
+		}
+	}
+	&__titles {
+		text-align: left;
+		margin-bottom: 12px;
+		button
+		{
+			color: $blue;
+			font-size: 14px;
+			margin-bottom: 6px;
+			&:hover {text-decoration: underline; }
+		}
+	}
+	.g-list{margin-bottom: 16px;}
+	&__prices
+	{
+		display: flex;
+		justify-content: space-between;
+		align-items:center;
+		border-top: 1px solid $default-border-color;
+		padding-top: 14px;
+		margin-bottom: 20px;
+	}
+	&__price 
+	{
+		font-size: 18px;
+		font-weight: 600;
+		display: inline-block;
+		&:last-of-type{margin-right: 10px;}
+		&--new
+		{
+			color: $accent-color;
+			margin-right: 8px;
+		}
+		&--old
+		{
+			text-decoration: line-through;
+			font-size: 14px;
+			font-weight: 400;
+		}
+	}
+	&__sale
+	{
+		display: inline-block;
+		background: $accent-color;
+		padding: 4px 7px;
+		border-radius: 30px;
+		color: $white;
+		text-align: center;
+		font-size: 13px;
+	}
+	&__tags
+	{
+		text-wrap: nowrap;
+		text-align: start;	
+	}
+	&__tag
+	{
+		font-size: 12px;
+		display: inline-block;
+		border-radius: 30px;
+		color: $blue-second;
+		background: $blue-light;
+		padding: 6px 10px;
+		margin-right: 4px;
+		&:last-of-type{margin-right: 0;}
+	}
+	&__event
+	{
+		position: absolute;
+		left: 10px;
+		top: 10px;
+	}
+	&__buttons
+	{
+		position: absolute;
+		right: 23px;
+		top: 11px;
+	}
+	&__button
+	{
+		margin-right: 7px;
+		&:last-of-type{margin: 0;}
+	}
+}
+
+</style>

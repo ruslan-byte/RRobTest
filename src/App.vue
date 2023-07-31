@@ -1,12 +1,20 @@
 <template>
 	<div class="app container">
 		<Header />
+		<main>
+			<el-row :gutter="30">
+				<el-col v-for="index of 4">
+					<Card></Card>
+				</el-col>
+			</el-row>
+		</main>
 	</div>
 </template>
 <script>
 	import Header from '@/components/Header.vue';
+	import Card from '@/components/Card.vue';
 	export default {
-	 components: ['Header']
+	 components: ['Header', 'Card']
 	}
 </script>
 
