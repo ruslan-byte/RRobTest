@@ -3,15 +3,8 @@
 		<Header class="app__header"/>
 		<main class="app__main">
 			<el-row class="app__row" :gutter="30">
-				<el-col
-					class="app__col"
-					v-for="index of 4"
-					:span="24"
-					:sm="12"
-					:md="8"
-					:lg="6"
-				>
-					<Card></Card>
+				<el-col class="app__col" v-for="index of 4">
+					<Card isHorizontal/>
 				</el-col>
 			</el-row>
 		</main>
