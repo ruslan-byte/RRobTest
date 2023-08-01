@@ -15,13 +15,37 @@
 			</el-row>
 		</main>
 		<el-pagination class="app__pagination" layout="pager" :total="30" />
+		<el-dialog
+			v-model="isPopupOpen"
+			:show-close="false"
+
+		>
+			<template #header="{close}">
+				<button
+					class="g-dialog-close-button"
+					@click="close" 
+				>
+					<close-icon />
+				</button>		
+			</template>
+			
+			<template #footer>
+			
+			</template>
+		</el-dialog>
 	</div>
 </template>
 <script>
+	import closeIcon from "@/components/icons/closeIcon.svg"
 	import Header from '@/components/Header.vue';
 	import Card from '@/components/Card.vue';
 	export default {
-	 components: ['Header', 'Card']
+	 components: {
+	 	Header,
+	 	Card,
+	 	'close-icon': closeIcon
+	 },
+	 data: ()=>({ isPopupOpen: true })
 	}
 </script>
 

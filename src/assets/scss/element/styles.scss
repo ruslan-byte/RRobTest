@@ -49,3 +49,75 @@
 {
 	background: transparent;
 }
+
+// el-dialog
+
+div.el-dialog
+{
+	margin: 0;
+	width: 100%;
+	min-height: 100%;
+	.el-dialog__header
+	{
+		padding: 0;
+		margin: 0;
+	}
+	.el-dialog__body {padding: 60px 16px; }
+	.g-dialog-close-button
+	{
+		position: absolute;
+		right: 18px;
+		top: 18px;
+		border-radius: 50%;
+		font-size: 0;
+		overflow: hidden;
+		border: 1px solid $default-border-color;
+		height: 41px;
+		width: 41px;
+		&:hover
+		{
+			border: 1px solid $gray;
+		}
+	}
+	.el-dialog__footer
+	{
+		padding: 60px 16px;
+		background: #EFF2F9;
+		text-align: unset;
+	}
+}
+@media (min-width:  $tablet)
+{
+	div.el-dialog
+	{
+		margin: 80px 40px;
+		width: calc(100% - 80px);
+		min-height: unset;
+		.el-dialog__body,
+		.el-dialog__footer
+		{padding: 80px 60px;}
+	}
+}
+@media (min-width:  $desktop)
+{
+	div.el-dialog
+	{		
+		margin: 62px 100px;
+		width: calc(100% - 200px);
+
+		.el-dialog__footer
+		{padding: 60px;}
+	}
+}
+@media (min-width:  $widescreen)
+{
+	div.el-dialog
+	{
+		margin: 200px 190px;
+		width: calc(100% - 380px);
+
+		.el-dialog__body,
+		.el-dialog__footer
+		{padding: 120px 80px;}
+	}
+}
