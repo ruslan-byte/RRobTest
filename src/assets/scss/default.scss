@@ -58,6 +58,7 @@ ul.g-list
 	gap: 16px;
 	li
 	{
+		white-space: nowrap;
 		color:$light-gray;
 		font-size: 14px;
 		position: relative;
