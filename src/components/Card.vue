@@ -1,5 +1,5 @@
  <template>
-	<div class="card" :class="{'card--horizontal': isHorizontal}">
+	<div @click="openPopup" class="card" :class="{'card--horizontal': isHorizontal}">
 		<picture class="card__image">
 			<img src="img/card.png" alt="card">
 		</picture>
@@ -90,6 +90,13 @@
 					return (index>=2) ? tagList + item + '\r\n' : tagList
 				},'');
 				return hideTagsList;
+			}
+		},
+		methods:
+		{
+			openPopup()
+			{
+				this.$store.commit('openPopup');
 			}
 		}
 	} 

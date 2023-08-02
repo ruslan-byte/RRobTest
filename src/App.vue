@@ -16,10 +16,9 @@
 		</main>
 		<el-pagination class="app__pagination" layout="pager" :total="30" />
 		<el-dialog
-			v-model="isPopupOpen"
+			:modelValue="isPopupOpen"
 			:show-close="false"
-			modal-class="success"
-
+			@close="closePopup"
 		>
 			<template #header="{close}">
 				<button
@@ -29,9 +28,9 @@
 					<close-icon />
 				</button>		
 			</template>
-			<popup-body v-if="false" />
-			<popup-success @close="isPopupOpen = false"/>
-			<template #footer v-if="false">
+			<popup-body v-if="true" />
+			<popup-success @close="closePopup()" v-else="false"/>
+			<template #footer v-if="true">
 				<popup-footer />
 			</template>
 		</el-dialog>
@@ -44,16 +43,30 @@
 	import Card from '@/components/Card.vue';
 	import PopupFooter from '@/components/PopupFooter.vue';
 	import PopupSuccess from '@/components/PopupSuccess.vue';
+
 	export default {
-	 components: {
-	 	Header,
-	 	Card,
-	 	'close-icon': closeIcon,
-	 	'popup-body': PopupBody,
-	 	'popup-footer': PopupFooter,
-	 	'popup-success': PopupSuccess,
-	 },
-	 data: ()=>({ isPopupOpen: true })
+		components: {
+			Header,
+			Card,
+			'close-icon': closeIcon,
+			'popup-body': PopupBody,
+			'popup-footer': PopupFooter,
+			'popup-success': PopupSuccess,
+		},
+		computed:
+		{
+			isPopupOpen()
+			{
+				return this.$store.state.popup.isOpen;
+			}
+		},
+		methods:
+		{
+			closePopup()
+			{
+				this.$store.commit('closePopup');
+			}
+		}
 	}
 </script>
 
