@@ -8,19 +8,41 @@
 				Наш менеджер перезвонит вам в течение 15 минут
 			</p>
 		</div>
-		<el-form class="popup-footer__form">
+		<el-form class="popup-footer__form" ref="form" :model="formData">
 			<label class="popup-footer__input">
 				<p class="popup-footer__input-title">Ваш email</p>
-				<el-input
-					v-model="email"
-					placeholder="myname@gmail.com"
-				/>
+				<el-form-item
+					:rules="[
+					{ 
+						type: 'email',
+						required: true,
+						message: 'Введите email' 
+					}]"
+					prop="email"
+				>	
+					<el-input
+						v-model="formData.email"
+						placeholder="myname@gmail.com"
+					/>
+				</el-form-item>
 			</label>
 			<label class="popup-footer__input">
 				<p class="popup-footer__input-title">Ваш телефон</p>
-				<el-form-item prop="name">
+				<el-form-item 
+					:rules="[{
+						required: true,
+						message: 'Введите номер'
+					},
+					{
+						min:11,
+						message: 'Номер телефона слишком короткий'
+					}
+
+					]"
+					prop="phoneNumber"
+				>
 					<el-input
-						v-model="phoneNumber"
+						v-model="formData.phoneNumber"
 						placeholder="+7 (XXX) XXX-XX-XX"
 						:formatter="phoneNumberMask"
 						:parser="parsNumberToString"
@@ -28,6 +50,7 @@
 				</el-form-item>
 			</label>
 			<el-button
+				@click="submit"
 				class="popup-footer__button"
 				type="primary"
 				size="large"
@@ -44,18 +67,29 @@
 <script>
 	export default {
 		data: ()=>({
-			email: '',
-			phoneNumber: ''
+			formData:
+			{
+				email: '',
+				phoneNumber: ''
+			}
 		}),
 		methods:
 		{
 			phoneNumberMask: (value) => {
 				let x = value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
-    				return !x[2] ? x[1] : '+' + x[1] + ' (' + x[2] + ') ' + x[3] + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+    			return !x[2] ? x[1] : '+' + x[1] + (!x[3] ? x[2] : (' (' + x[2] + ') ')) + x[3] + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
 
 			},
-			parsNumberToString:(value) => value.replace(/\(\s?|\)\s?|\-\s?|\ \s?|\+\s?|/g, '')
+			parsNumberToString:(value) => value.replace(/\(\s?|\)\s?|\-\s?|\ \s?|\+\s?|/g, ''),
 
+			submit() {
+				this.$refs.form.validate((valid)=>{
+					if(valid)
+					{
+						this.$store.commit('setPopupSuccess', true)
+					}
+				})
+			}
 		}
 	}
 </script>

@@ -20,6 +20,7 @@
 			:modelValue="isPopupOpen"
 			:show-close="false"
 			@close="closePopup"
+			:modal-class="(isPopupSuccess)? success : ''"
 		>
 			<template #header="{close}">
 				<button
@@ -29,9 +30,9 @@
 					<close-icon />
 				</button>		
 			</template>
-			<popup-body v-if="true" />
-			<popup-success @close="closePopup()" v-else="false"/>
-			<template #footer v-if="true">
+			<popup-body v-if="!isPopupSuccess" />
+			<popup-success @close="closePopup()" v-else/>
+			<template #footer v-if="!isPopupSuccess">
 				<popup-footer />
 			</template>
 		</el-dialog>
@@ -44,7 +45,7 @@
 	import Card from '@/components/Card.vue';
 	import PopupFooter from '@/components/PopupFooter.vue';
 	import PopupSuccess from '@/components/PopupSuccess.vue';
-
+	import { mapState } from 'vuex'
 	export default {
 		components: {
 			Header,
@@ -54,17 +55,11 @@
 			'popup-footer': PopupFooter,
 			'popup-success': PopupSuccess,
 		},
-		computed:
-		{
-			isPopupOpen()
-			{
-				return this.$store.state.popup.isOpen;
-			},
-			isCardHorizontal()
-			{
-				return this.$store.state.card.isHorizontal;
-			}
-		},
+		computed: mapState({
+			isPopupOpen: state => state.popup.isOpen,
+			isPopupSuccess: state => state.popup.isSuccess,
+			isCardHorizontal: state => state.card.isHorizontal,
+		}),
 		methods:
 		{
 			closePopup()

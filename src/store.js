@@ -4,7 +4,8 @@ export default createStore({
   state: {
   	popup: {
   		isOpen: true,
-  		data: null
+  		data: null,
+      isSuccess: true
   	},
     card: {
       isHorizontal: false,
@@ -22,6 +23,10 @@ export default createStore({
     setIsHorizontal({card}, newValue)
     {
       card.isHorizontal = newValue;
+    },
+    setPopupSuccess({popup}, newValue)
+    {
+      popup.isSuccess = newValue;
     }
   },
   actions: {

@@ -100,7 +100,12 @@
 		{
 			openPopup()
 			{
+				this.closeSuccessMessage();
 				this.$store.commit('openPopup');
+			},
+			closeSuccessMessage()
+			{
+				this.$store.commit('setPopupSuccess', false)
 			}
 		}
 	} 
