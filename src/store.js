@@ -29,9 +29,4 @@ export default createStore({
       popup.isSuccess = newValue;
     }
   },
-  actions: {
-  },
-  getters: {
-
-  }
 })
