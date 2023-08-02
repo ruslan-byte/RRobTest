@@ -18,10 +18,14 @@
 			</label>
 			<label class="popup-footer__input">
 				<p class="popup-footer__input-title">Ваш телефон</p>
-				<el-input
-					v-model="phoneNumber"
-					placeholder="+7 (XXX) XXX-XX-XX"
-				/>
+				<el-form-item prop="name">
+					<el-input
+						v-model="phoneNumber"
+						placeholder="+7 (XXX) XXX-XX-XX"
+						:formatter="phoneNumberMask"
+						:parser="parsNumberToString"
+					/>
+				</el-form-item>
 			</label>
 			<el-button
 				class="popup-footer__button"
@@ -42,7 +46,17 @@
 		data: ()=>({
 			email: '',
 			phoneNumber: ''
-		})
+		}),
+		methods:
+		{
+			phoneNumberMask: (value) => {
+				let x = value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+    				return !x[2] ? x[1] : '+' + x[1] + ' (' + x[2] + ') ' + x[3] + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+
+			},
+			parsNumberToString:(value) => value.replace(/\(\s?|\)\s?|\-\s?|\ \s?|\+\s?|/g, '')
+
+		}
 	}
 </script>
 
