@@ -30,7 +30,7 @@
 			</template>
 			<popup-body />
 			<template #footer>
-			
+				<popup-footer />		
 			</template>
 		</el-dialog>
 	</div>
@@ -40,12 +40,14 @@
 	import Header from '@/components/Header.vue';
 	import PopupBody from '@/components/PopupBody.vue';
 	import Card from '@/components/Card.vue';
+	import PopupFooter from '@/components/PopupFooter.vue';
 	export default {
 	 components: {
 	 	Header,
 	 	Card,
 	 	'close-icon': closeIcon,
-	 	'popup-body': PopupBody
+	 	'popup-body': PopupBody,
+	 	'popup-footer': PopupFooter
 	 },
 	 data: ()=>({ isPopupOpen: true })
 	}
