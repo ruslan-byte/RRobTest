@@ -6,6 +6,9 @@ export default createStore({
   		isOpen: true,
   		data: null
   	},
+    card: {
+      isHorizontal: false,
+    }
   },
   mutations: {
   	closePopup({popup})
@@ -15,7 +18,11 @@ export default createStore({
   	openPopup({popup})
   	{
   		popup.isOpen = true;
-  	}
+  	},
+    setIsHorizontal({card}, newValue)
+    {
+      card.isHorizontal = newValue;
+    }
   },
   actions: {
   },

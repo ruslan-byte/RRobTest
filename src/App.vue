@@ -6,9 +6,10 @@
 				<el-col
 					class="app__col"
 					v-for="index of 4"
-					:sm="12"
-					:md="8"
-					:lg="6"
+					:key="index"
+					:sm="(isCardHorizontal)? 24 : 12"
+					:md="(isCardHorizontal)? 24 : 8"
+					:lg="(isCardHorizontal)? 24 : 6"
 				>
 					<Card/>
 				</el-col>
@@ -58,6 +59,10 @@
 			isPopupOpen()
 			{
 				return this.$store.state.popup.isOpen;
+			},
+			isCardHorizontal()
+			{
+				return this.$store.state.card.isHorizontal;
 			}
 		},
 		methods:

@@ -1,6 +1,11 @@
 <template>
-	<el-radio-group class="toggle-cart-type" v-model="isCartTypeList" size="large">
-		<el-radio-button :label="false">
+	<el-radio-group
+		class="toggle-card-type"
+		:model-value="isCardHorizontal"
+		size="large"
+		@change="changeIsCardHorizontal"
+	>
+		<el-radio-button :label="false" >
 			<card-icon/>
 		</el-radio-button>
 		<el-radio-button :label="true">
@@ -13,12 +18,26 @@ import listIcon from '@/components/icons/list.svg'
 import cardIcon from '@/components/icons/cards.svg'
 export default {
 	components:{'list-icon': listIcon, 'card-icon': cardIcon},
-	data: () => ({ isCartTypeList: false }),
+	data: () => ({ isCardTypeList: false }),
+	computed:
+	{
+		isCardHorizontal()
+		{
+			return this.$store.state.card.isHorizontal;
+		}
+	},
+	methods:
+	{
+		changeIsCardHorizontal(newValue)
+		{
+			this.$store.commit('setIsHorizontal', newValue);
+		}
+	}
 }
 </script>
 
 <style lang="scss">
-.toggle-cart-type
+.toggle-card-type
 {
 	gap: 6px;
 	svg 

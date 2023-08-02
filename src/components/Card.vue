@@ -1,5 +1,5 @@
  <template>
-	<div @click="openPopup" class="card" :class="{'card--horizontal': isHorizontal}">
+	<div @click="openPopup" class="card" :class="{'card--horizontal': isCardHorizontal}">
 		<picture class="card__image">
 			<img src="img/card.png" alt="card">
 		</picture>
@@ -15,7 +15,7 @@
 						<li>Этаж 10</li>
 						<li>Сдача 1 кв. 2026</li>
 					</ul>
-					<div class="card__prices" v-if="!isHorizontal" >
+					<div class="card__prices" v-if="!isCardHorizontal" >
 						<div>
 							<span class="card__price card__price--new"> 12 886 400 ₽ </span>
 							<span class="card__price card__price--old"> 12 886 400 ₽ </span>
@@ -37,7 +37,7 @@
 					</template>
 				</div>
 			</div>
-			<div class="card__prices" v-if="isHorizontal">
+			<div class="card__prices" v-if="isCardHorizontal">
 				<span class="card__price card__price--old"> 12 886 400 ₽ </span>
 				<span class="card__price card__price--new"> 12 886 400 ₽ </span>
 				<span class="card__sale">10% </span>
@@ -70,7 +70,6 @@
 	import heard from "@/components/icons/heard.svg"
 	import scales from "@/components/icons/scales.svg"
 	export default {
-		props:{ isHorizontal: Boolean },
 		components: {
 			'fire-icon': fire,
 			'heard-icon': heard,
@@ -81,7 +80,8 @@
 		}),
 		computed:
 		{
-			hideTagsCount(){
+			hideTagsCount()
+			{
 				return this.tags.length - 2;
 			},
 			hideTagsList()
@@ -90,6 +90,10 @@
 					return (index>=2) ? tagList + item + '\r\n' : tagList
 				},'');
 				return hideTagsList;
+			},
+			isCardHorizontal()
+			{
+				return this.$store.state.card.isHorizontal;
 			}
 		},
 		methods:
