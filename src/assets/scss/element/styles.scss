@@ -96,17 +96,27 @@ div.el-dialog
 		.el-dialog__body,
 		.el-dialog__footer
 		{padding: 80px 60px;}
+		.g-dialog-close-button
+		{
+			right: 30px;
+			top: 30px;
+		}
+
 	}
 }
 @media (min-width:  $desktop)
 {
 	div.el-dialog
-	{		
-		margin: 62px 100px;
-		width: calc(100% - 200px);
+	{
+		margin: 100px 62px;		
+		width: calc(100% - 124px);
 
-		.el-dialog__footer
-		{padding: 60px;}
+		.el-dialog__footer{padding: 60px;}
+		.g-dialog-close-button
+		{
+			right: 40px;
+			top: 40px;
+		}
 	}
 }
 @media (min-width:  $widescreen)
@@ -118,6 +128,6 @@ div.el-dialog
 
 		.el-dialog__body,
 		.el-dialog__footer
-		{padding: 120px 80px;}
+		{padding: 80px 120px}
 	}
 }

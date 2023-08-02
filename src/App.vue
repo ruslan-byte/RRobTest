@@ -28,7 +28,7 @@
 					<close-icon />
 				</button>		
 			</template>
-			
+			<popup-body />
 			<template #footer>
 			
 			</template>
@@ -38,12 +38,14 @@
 <script>
 	import closeIcon from "@/components/icons/closeIcon.svg"
 	import Header from '@/components/Header.vue';
+	import PopupBody from '@/components/PopupBody.vue';
 	import Card from '@/components/Card.vue';
 	export default {
 	 components: {
 	 	Header,
 	 	Card,
-	 	'close-icon': closeIcon
+	 	'close-icon': closeIcon,
+	 	'popup-body': PopupBody
 	 },
 	 data: ()=>({ isPopupOpen: true })
 	}
