@@ -61,6 +61,7 @@ div.el-dialog
 	{
 		padding: 0;
 		margin: 0;
+
 	}
 	.el-dialog__body {padding: 60px 16px; }
 	.g-dialog-close-button
@@ -85,6 +86,11 @@ div.el-dialog
 		background: #EFF2F9;
 		text-align: unset;
 	}
+	.success &
+	{
+		background: #EFF2F9;
+		.el-dialog__body {padding: 180px 16px; }
+	}
 }
 
 //input
@@ -108,7 +114,7 @@ div.el-input
 			right: 30px;
 			top: 30px;
 		}
-
+		.success & .el-dialog__body {padding: 120px 73px; }
 	}
 }
 //button
@@ -126,6 +132,8 @@ button.el-button--large{ --el-button-size: 40px;}
 			right: 40px;
 			top: 40px;
 		}
+		.success & .el-dialog__body {padding: 140px 95px; }
+
 	}
 }
 @media (min-width:  $widescreen)

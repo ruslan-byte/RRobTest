@@ -18,6 +18,7 @@
 		<el-dialog
 			v-model="isPopupOpen"
 			:show-close="false"
+			modal-class="success"
 
 		>
 			<template #header="{close}">
@@ -28,9 +29,10 @@
 					<close-icon />
 				</button>		
 			</template>
-			<popup-body />
-			<template #footer>
-				<popup-footer />		
+			<popup-body v-if="false" />
+			<popup-success @close="isPopupOpen = false"/>
+			<template #footer v-if="false">
+				<popup-footer />
 			</template>
 		</el-dialog>
 	</div>
@@ -41,13 +43,15 @@
 	import PopupBody from '@/components/PopupBody.vue';
 	import Card from '@/components/Card.vue';
 	import PopupFooter from '@/components/PopupFooter.vue';
+	import PopupSuccess from '@/components/PopupSuccess.vue';
 	export default {
 	 components: {
 	 	Header,
 	 	Card,
 	 	'close-icon': closeIcon,
 	 	'popup-body': PopupBody,
-	 	'popup-footer': PopupFooter
+	 	'popup-footer': PopupFooter,
+	 	'popup-success': PopupSuccess,
 	 },
 	 data: ()=>({ isPopupOpen: true })
 	}
