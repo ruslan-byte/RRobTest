@@ -114,6 +114,7 @@
 <style lang="scss">
 .card
 {
+	cursor: pointer;
 	position: relative;
 	background: $white;
 	padding: 30px 20px 24px 20px;

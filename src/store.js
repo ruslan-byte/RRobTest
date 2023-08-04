@@ -3,9 +3,9 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
   	popup: {
-  		isOpen: true,
+  		isOpen: false,
   		data: null,
-      isSuccess: true
+      isSuccess: false
   	},
     card: {
       isHorizontal: false,
