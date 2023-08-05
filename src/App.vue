@@ -120,7 +120,7 @@
 		{
 			padding-top: 120px;
 			padding-bottom: 146px;
-			&__col{margin: 0;}
+			&__col:nth-last-of-type(4){margin: 0;}
 		}
 	}
 </style>
