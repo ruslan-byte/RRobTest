@@ -8,7 +8,7 @@
 				<div class="card__titles-overlay">
 					<div class="card__titles">
 						<button> {{cardData.objectName}} </button>
-						<h4>{{cardData.shortTitle}}</h4>
+						<el-scrollbar tag="h4" >{{cardData.shortTitle}}</el-scrollbar>
 					</div>
 					<ul class="g-list">
 						<li>Литер {{cardData.lairNum}}</li>
@@ -160,6 +160,7 @@
 			margin-bottom: 6px;
 			&:hover {text-decoration: underline; }
 		}
+		h4{white-space: pre;}
 	}
 	.g-list{margin-bottom: 16px;}
 	&__prices
