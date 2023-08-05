@@ -5,13 +5,13 @@
 			<el-row class="app__row" :gutter="30">
 				<el-col
 					class="app__col"
-					v-for="index of 4"
-					:key="index"
+					v-for="(card, index) of cardList"
+					:key="`${index}-${card.id}`"
 					:sm="(isCardHorizontal)? 24 : 12"
 					:md="(isCardHorizontal)? 24 : 8"
 					:lg="(isCardHorizontal)? 24 : 6"
 				>
-					<Card/>
+					<Card :cardData="card"/>
 				</el-col>
 			</el-row>
 		</main>
@@ -59,6 +59,7 @@
 			isPopupOpen: state => state.popup.isOpen,
 			isPopupSuccess: state => state.popup.isSuccess,
 			isCardHorizontal: state => state.card.isHorizontal,
+			cardList: state => state.card.list
 		}),
 		methods:
 		{

@@ -7,25 +7,31 @@
 			<div class="card__data">
 				<div class="card__titles-overlay">
 					<div class="card__titles">
-						<button> ЖК «Министерские озера» </button>
-						<h4>3-комнатная квартира № 262, 65.6 м²</h4>
+						<button> {{cardData.objectName}} </button>
+						<h4>{{cardData.shortTitle}}</h4>
 					</div>
 					<ul class="g-list">
-						<li>Литер 14</li>
-						<li>Этаж 10</li>
-						<li>Сдача 1 кв. 2026</li>
+						<li>Литер {{cardData.lairNum}}</li>
+						<li>Этаж {{cardData.floorNum}}</li>
+						<li>Сдача {{cardData.deadline}}</li>
 					</ul>
 					<div class="card__prices" v-if="!isCardHorizontal" >
 						<div>
-							<span class="card__price card__price--new"> 12 886 400 ₽ </span>
-							<span class="card__price card__price--old"> 12 886 400 ₽ </span>
+							<span
+								class="card__price"
+								:class="{'card__price--new':cardData.oldPrice}"
+							> {{cardData.price}} </span>
+							<span class="card__price card__price--old"> {{cardData.oldPrice}} </span>
 						</div>
-						<span class="card__sale">10% </span>
+						<span class="card__sale" v-if="cardData.salePercent">{{cardData.salePercent}}% </span>
 					</div>
 				</div>
 				<div class="card__tags card__tags--mobile">
-					<template v-for="(name, id) in tags">
-						<div class="card__tag" v-if="id < 2"> {{name}}  </div>
+					<template
+						v-for="(feature, id) in cardData.features"
+						:key="`${feature}-${id}`"
+					>
+						<div class="card__tag" v-if="id < 2"> {{feature}}  </div>
 						<el-tooltip
 							effect="tag"
 							v-else-if="tags.length - 1 == id"
@@ -38,9 +44,19 @@
 				</div>
 			</div>
 			<div class="card__prices" v-if="isCardHorizontal">
-				<span class="card__price card__price--old"> 12 886 400 ₽ </span>
-				<span class="card__price card__price--new"> 12 886 400 ₽ </span>
-				<span class="card__sale">10% </span>
+				<span
+					v-if="cardData.oldPrice"
+					class="card__price card__price--old"
+				>
+					{{cardData.oldPrice}}
+				</span>
+				<span
+					class="card__price"
+					:class="{'card__price--new':cardData.oldPrice}"
+				>
+					{{cardData.price}}
+				</span>
+				<span class="card__sale" v-if="cardData.salePercent">{{cardData.salePercent}}% </span>
 			</div>
 			<div class="card__tags card__tags--desktop">
 				<template v-for="(name, id) in tags">
@@ -70,6 +86,7 @@
 	import heard from "@/components/icons/heard.svg"
 	import scales from "@/components/icons/scales.svg"
 	export default {
+		props: { cardData: Object },
 		components: {
 			'fire-icon': fire,
 			'heard-icon': heard,

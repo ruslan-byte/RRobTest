@@ -1,5 +1,5 @@
-import { createStore } from 'vuex'
-
+import { createStore } from 'vuex';
+import cardList from './CardList.js';
 export default createStore({
   state: {
   	popup: {
@@ -9,6 +9,7 @@ export default createStore({
   	},
     card: {
       isHorizontal: false,
+      list: cardList
     }
   },
   mutations: {
