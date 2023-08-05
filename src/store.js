@@ -28,6 +28,10 @@ export default createStore({
     setPopupSuccess({popup}, newValue)
     {
       popup.isSuccess = newValue;
+    },
+    setPopupData({popup}, newValue)
+    {
+      popup.data = newValue;
     }
   },
 })

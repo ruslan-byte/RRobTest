@@ -1,27 +1,33 @@
 <template>
 	<div class="popup-body">
 		<picture class="popup-body__image">
-			<img src="/img/popup-img.png" alt="Квартира">
+			<img :src="popupData.layout" alt="Квартира">
 		</picture>
 		<div class="popup-body__main">
-			<h3 class="popup-body__title">Студия №2, 15.18 м</h3>
-			<p class="popup-body__id">ID25801</p>
-			<button class="popup-body__button g-link">ЖК «Кислород»</button>
+			<h3 class="popup-body__title">{{popupData.title}}</h3>
+			<p class="popup-body__id">ID{{popupData.id}}</p>
+			<button class="popup-body__button g-link">{{popupData.objectName}}</button>
 			<div class="popup-body__deadline">
-				Срок сдачи: <b>1 квартал 2026</b>
+				Срок сдачи: <b>{{popupData.deadline}}</b>
 			</div>
 			<div class="popup-body__options">
-				<div class="popup-body__option"><span>Корпус</span><span>6</span></div>
-				<div class="popup-body__option"><span>Этаж</span><span>2</span></div>
-				<div class="popup-body__option"><span>Общая площадь</span><span>28,4 м2</span></div>
-				<div class="popup-body__option"><span>Жилая площадь</span><span>18 м2</span></div>
+				<div class="popup-body__option"><span>Корпус</span><span>{{popupData.lairNum}}</span></div>
+				<div class="popup-body__option"><span>Этаж</span><span>{{popupData.floorNum}}</span></div>
+				<div class="popup-body__option"><span>Общая площадь</span><span>{{popupData.area}} м2</span></div>
+				<div class="popup-body__option"><span>Жилая площадь</span><span>{{popupData.areaKitchen}} м2</span></div>
 			</div>
-			<div class="popup-body__price"><span>Стоимость</span><span>от 9 000 000 ₽</span></div>
+			<div class="popup-body__price"><span>Стоимость</span><span>от {{popupData.price}} ₽</span></div>
 		</div>
 	</div>
 </template>
 <script>
 	export default {
+		computed:
+		{
+			popupData() {
+				return this.$store.state.popup.data;
+			}
+		}
 	}
 </script>
 

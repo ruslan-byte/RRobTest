@@ -117,7 +117,9 @@
 		{
 			openPopup()
 			{
+
 				this.closeSuccessMessage();
+				this.$store.commit('setPopupData', this.cardData);
 				this.$store.commit('openPopup');
 			},
 			closeSuccessMessage()
