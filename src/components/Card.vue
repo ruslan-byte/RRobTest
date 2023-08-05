@@ -26,7 +26,7 @@
 						<span class="card__sale" v-if="cardData.salePercent">{{cardData.salePercent}}% </span>
 					</div>
 				</div>
-				<div class="card__tags card__tags--mobile">
+				<el-scrollbar class="card__tags card__tags--mobile" @click.stop>
 					<template
 						v-for="(feature, id) in cardData.features"
 						:key="`${feature}-${id}`"
@@ -41,7 +41,7 @@
 							<div class="card__tag"> +{{ hideTagsCount }}  </div>
 						</el-tooltip>
 					</template>
-				</div>
+				</el-scrollbar>
 			</div>
 			<div class="card__prices" v-if="isCardHorizontal">
 				<span
