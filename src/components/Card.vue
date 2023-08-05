@@ -1,7 +1,7 @@
  <template>
 	<div @click="openPopup" class="card" :class="{'card--horizontal': isCardHorizontal}">
 		<picture class="card__image">
-			<img src="img/card.png" alt="card">
+			<img :src="cardData.layout" alt="card">
 		</picture>
 		<div class="card__section">
 			<div class="card__data">
