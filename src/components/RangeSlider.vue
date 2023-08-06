@@ -11,7 +11,8 @@
 		<el-slider
 			class="range-slider__slider"
 			:show-tooltip="false"
-			v-model="value"
+			:model-value="value"
+			@change="changeValue"
 			range
 			:max="maxValue"
 			:min="minValue"
@@ -54,6 +55,10 @@
 				number = ('' + number).split('');
 				number.push(',' + number.pop());
 				return number.join('');
+			},
+			changeValue(newValue)
+			{
+				this.$emit('change', newValue)
 			}
 		}
 	}

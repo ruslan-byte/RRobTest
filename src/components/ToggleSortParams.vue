@@ -11,7 +11,7 @@
 		</button>
 		<button
 			class="toggle-sort-params__button"
-			:class="{ 'toggle-sort-params__button--active': isSpaceTop }"
+			:class="{ 'toggle-sort-params__button--active': isAreaTop }"
 			@click="toggleSortSpace"
 		>
 			по площади
@@ -23,21 +23,29 @@
 	import arrowIcon from '@/components/icons/arrow.svg'	
 	export default {
 		components:{'arrow-icon': arrowIcon},
-		data: () => ({
-				isSpaceTop: false,
-				isPriceTop: true
-		}),
 		methods:
 		{
 			toggleSortPrice()
 			{
-				this.isPriceTop = !this.isPriceTop;
+				this.$store.commit('changeFilterSort', {sortName: 'isPriceTop', newValue: !this.isPriceTop })
 			},
 			toggleSortSpace()
 			{
-				this.isSpaceTop = !this.isSpaceTop;
-			}
+				this.$store.commit('changeFilterSort', {sortName: 'isAreaTop', newValue: !this.isAreaTop })
+			},
+			
 		},
+		computed:
+		{
+			isPriceTop()
+			{
+				return this.$store.state.filters.sort.isPriceTop;
+			},
+			isAreaTop()
+			{
+				return this.$store.state.filters.sort.isAreaTop;
+			}
+		}
 	}
 </script>
 

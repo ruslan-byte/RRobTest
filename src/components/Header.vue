@@ -12,13 +12,14 @@
 					<label>
 						<p>Выбрать ЖК</p>
 						<el-select
-							v-model="selectData.value"
+							:model-value="filters.residentialСomplexSelect.value"
+							@change="changeResidentialСomplexSelectValue"
 							placeholder="Select"
 							size="large"
-							:suffixIcon="selectData.arrow"
+							:suffixIcon="arrowIcon"
 						>
 							<el-option
-								v-for="(option, key) in selectData.options"
+								v-for="(option, key) in filters.residentialСomplexSelect.options"
 								:key="`${key}-${option.value}`"
 								:label="option.label"
 								:value="option.value"
@@ -33,13 +34,14 @@
 					<label>
 						<p>Выбрать корпус</p>
 						<el-select
-							v-model="selectData.value"
+							:model-value="filters.litterNumSelect.value"
+							@change="changeLitterNumSelectValue"
 							placeholder="Select"
 							size="large"
-							:suffixIcon="selectData.arrow"
+							:suffixIcon="arrowIcon"
 						>
 							<el-option
-								v-for="(option, key) in selectData.options"
+								v-for="(option, key) in filters.litterNumSelect.options"
 								:key="`${key}-${option.value}`"
 								:label="option.label"
 								:value="option.value"
@@ -53,11 +55,16 @@
 					:sm="8"
 				>
 					<p>Комнатность</p>
-					<el-radio-group v-model="radioData" size="large">
-						<el-radio-button label="Ст"  />
-						<el-radio-button label="1" />
-						<el-radio-button label="2" />
-						<el-radio-button label="3+" />
+					<el-radio-group
+						:model-value="filters.roomFilter.value"
+						size="large"
+						@change="changeRoomFilterValue"
+					>
+						<el-radio-button
+							v-for="(option, id) of filters.roomFilter.options"
+							:key="`${id}-${option.id}`"
+							:label="option.label"
+						/>
 					</el-radio-group>
 				</el-col>
 				<el-col
@@ -67,7 +74,9 @@
 				>
 					<label>
 						<p>Площадь, м2 </p>
-						<range-slider :range="[17, 162]"/>
+						<range-slider
+							:range="filters.areaRange"
+						/>
 					</label>
 				</el-col>
 				<el-col
@@ -77,7 +86,7 @@
 				>
 					<label>
 						<p>Стоимость, млн ₽ </p>
-						<range-slider :range="[25, 245]" isFloat/>
+						<range-slider :range="filters.priceRange" isFloat/>
 					</label>
 				</el-col>
 				<el-col
@@ -88,13 +97,13 @@
 					<label>
 						<p>Выбрать корпус</p>
 						<el-select
-							v-model="selectData.value"
+							:model-value="filters.litterNumSelect.value"
 							placeholder="Select"
 							size="large"
-							:suffixIcon="selectData.arrow"
+							:suffixIcon="arrowIcon"
 						>
 							<el-option
-								v-for="(option, key) in selectData.options"
+								v-for="(option, key) in filters.litterNumSelect.options"
 								:key="`${key}-${option.value}`"
 								:label="option.label"
 								:value="option.value"
@@ -127,34 +136,29 @@
 			'toggle-card-type': toggleCardType
 		},
 		data: () => ({
-			selectData: {
-				arrow: markRaw(arrowIcon),
-				value: "all",
-				options: [
-					{
-						value: 'all',
-						label: 'Любой',
-					},
-					{
-						value: 'Option2',
-						label: 'Option2',
-					},
-					{
-						value: 'Option3',
-						label: 'Option3',
-					},
-					{
-						value: 'Option4',
-						label: 'Option4',
-					},
-					{
-						value: 'Option5',
-						label: 'Option5',
-					},
-				]
+			arrowIcon: markRaw(arrowIcon),
+		}),
+		computed:
+		{
+			filters() {
+				return this.$store.state.filters;
+			}
+		},
+		methods:
+		{
+			changeResidentialСomplexSelectValue(newValue)
+			{
+				this.$store.commit('changeResidentialСomplexSelectValue', newValue);
 			},
-			radioData: '1',
-		})
+			changeLitterNumSelectValue(newValue)
+			{
+				this.$store.commit('changeLitterNumSelectValue', newValue);
+			},
+			changeRoomFilterValue(newValue)
+			{
+				this.$store.commit('changeRoomFilterValue', newValue);
+			},
+		}
 	}
 </script>
 
