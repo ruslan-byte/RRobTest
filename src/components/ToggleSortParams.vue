@@ -27,11 +27,11 @@
 		{
 			toggleSortPrice()
 			{
-				this.$store.commit('changeFilterSort', {sortName: 'isPriceTop', newValue: !this.isPriceTop })
+				this.$store.commit('filters/changeFilterSort', {sortName: 'isPriceTop', newValue: !this.isPriceTop })
 			},
 			toggleSortSpace()
 			{
-				this.$store.commit('changeFilterSort', {sortName: 'isAreaTop', newValue: !this.isAreaTop })
+				this.$store.commit('filters/changeFilterSort', {sortName: 'isAreaTop', newValue: !this.isAreaTop })
 			},
 			
 		},

@@ -75,7 +75,8 @@
 					<label>
 						<p>Площадь, м2 </p>
 						<range-slider
-							:range="filters.areaRange"
+							:range="filters.area.range"
+							@change="changeAreaValue"
 						/>
 					</label>
 				</el-col>
@@ -86,7 +87,11 @@
 				>
 					<label>
 						<p>Стоимость, млн ₽ </p>
-						<range-slider :range="filters.priceRange" isFloat/>
+						<range-slider
+							:range="filters.price.range"
+							isFloat
+							@change="changePriceValue"
+						/>
 					</label>
 				</el-col>
 				<el-col
@@ -98,6 +103,7 @@
 						<p>Выбрать корпус</p>
 						<el-select
 							:model-value="filters.litterNumSelect.value"
+							@change="changeLitterNumSelectValue"
 							placeholder="Select"
 							size="large"
 							:suffixIcon="arrowIcon"
@@ -148,16 +154,25 @@
 		{
 			changeResidentialСomplexSelectValue(newValue)
 			{
-				this.$store.commit('changeResidentialСomplexSelectValue', newValue);
+				this.$store.commit('filters/changeResidentialСomplexSelectValue', newValue);
 			},
 			changeLitterNumSelectValue(newValue)
 			{
-				this.$store.commit('changeLitterNumSelectValue', newValue);
+				this.$store.commit('filters/changeLitterNumSelectValue', newValue);
 			},
 			changeRoomFilterValue(newValue)
 			{
-				this.$store.commit('changeRoomFilterValue', newValue);
+				this.$store.commit('filters/changeRoomFilterValue', newValue);
 			},
+			changeAreaValue(newValue)
+			{
+				this.$store.commit('filters/changeAreaValue', newValue);
+			},
+			changePriceValue(newValue)
+			{
+				this.$store.commit('filters/changePriceValue', newValue);
+			},
+			
 		}
 	}
 </script>

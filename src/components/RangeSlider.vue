@@ -2,7 +2,7 @@
 	<div class="range-slider">
 		<el-input
 			class="range-slider__input"
-			:value="minInput" 
+			:value="minInput"
 		/>
 		<el-input
 			class="range-slider__input"
@@ -11,7 +11,7 @@
 		<el-slider
 			class="range-slider__slider"
 			:show-tooltip="false"
-			:model-value="value"
+			v-model="value"
 			@change="changeValue"
 			range
 			:max="maxValue"
@@ -56,9 +56,13 @@
 				number.push(',' + number.pop());
 				return number.join('');
 			},
-			changeValue(newValue)
+			inputValue(newValue)
 			{
-				this.$emit('change', newValue)
+				this.value = newValue;
+			},
+			changeValue(newRangeArray)
+			{
+				this.$emit('change',newRangeArray);
 			}
 		}
 	}
