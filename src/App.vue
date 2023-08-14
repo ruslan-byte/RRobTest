@@ -55,12 +55,17 @@
 			'popup-footer': PopupFooter,
 			'popup-success': PopupSuccess,
 		},
-		computed: mapState({
-			isPopupOpen: state => state.popup.isOpen,
-			isPopupSuccess: state => state.popup.isSuccess,
-			isCardHorizontal: state => state.card.isHorizontal,
-			cardList: state => state.card.list
-		}),
+		computed:
+		{
+			cardList(){
+				return this.$store.getters.getFilterCardList;
+			}, 
+			...mapState({
+					isPopupOpen: state => state.popup.isOpen,
+					isPopupSuccess: state => state.popup.isSuccess,
+					isCardHorizontal: state => state.card.isHorizontal,
+			}),
+		},
 		methods:
 		{
 			closePopup()
