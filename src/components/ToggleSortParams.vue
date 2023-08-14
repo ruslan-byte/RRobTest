@@ -4,15 +4,15 @@
 		<button
 			class="toggle-sort-params__button"
 			:class="{ 'toggle-sort-params__button--active': isPriceTop }"
-			@click="toggleSortPrice"
+			@click="setPriceTop"
 		>
 			по цене
 			<arrow-icon/>
 		</button>
 		<button
 			class="toggle-sort-params__button"
-			:class="{ 'toggle-sort-params__button--active': isAreaTop }"
-			@click="toggleSortSpace"
+			:class="{ 'toggle-sort-params__button--active': !isPriceTop }"
+			@click="setAreaTop"
 		>
 			по площади
 			<arrow-icon/>
@@ -25,13 +25,13 @@
 		components:{'arrow-icon': arrowIcon},
 		methods:
 		{
-			toggleSortPrice()
+			setPriceTop()
 			{
-				this.$store.commit('filters/changeFilterSort', {sortName: 'isPriceTop', newValue: !this.isPriceTop })
+				this.$store.commit('filters/changeFilterSort', true )
 			},
-			toggleSortSpace()
+			setAreaTop()
 			{
-				this.$store.commit('filters/changeFilterSort', {sortName: 'isAreaTop', newValue: !this.isAreaTop })
+				this.$store.commit('filters/changeFilterSort', false )
 			},
 			
 		},
@@ -39,12 +39,8 @@
 		{
 			isPriceTop()
 			{
-				return this.$store.state.filters.sort.isPriceTop;
+				return this.$store.state.filters.isPriceTop;
 			},
-			isAreaTop()
-			{
-				return this.$store.state.filters.sort.isAreaTop;
-			}
 		}
 	}
 </script>

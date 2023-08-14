@@ -40,7 +40,16 @@ export default createStore({
     },
   },
   getters: {
-
+    getSortFilterCardList(state, getters)
+    {
+      let priceCorrector = getters['filters/getPriceInCorrectFormat'];
+      return getters.getFilterCardList.sort((firstCard, secondCard)=>
+      {
+        return (state.filters.isPriceTop) ? 
+        priceCorrector(secondCard.price) - priceCorrector(firstCard.price) :
+        +secondCard.area - +firstCard.area;
+      });
+    },
     getFilterCardList({card, filters}, getters)
     {
       return card.list.filter((item)=>{

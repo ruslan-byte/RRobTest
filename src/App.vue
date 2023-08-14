@@ -58,7 +58,7 @@
 		computed:
 		{
 			cardList(){
-				return this.$store.getters.getFilterCardList;
+				return this.$store.getters.getSortFilterCardList;
 			}, 
 			...mapState({
 					isPopupOpen: state => state.popup.isOpen,

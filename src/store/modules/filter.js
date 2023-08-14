@@ -52,21 +52,13 @@ export default {
 			range: [25, 245],
 			value: [25, 245]
 		},
-		sort:
-		{
-			isPriceTop: false,
-			isAreaTop: false
-		}
+		isPriceTop: true,
 	},
 	mutations:
 	{
-		changeFilterSort(state, {sortName, newValue})
+		changeFilterSort(state, newValue)
 		{
-			state.sort[sortName] = newValue;
-		},
-		changeSort(store, {sortName, newValue})
-		{
-			store.sort[sortName] = newValue;
+			state.isPriceTop = newValue;
 		},
 		changeResidentialСomplexSelectValue(store, newValue)
 		{
