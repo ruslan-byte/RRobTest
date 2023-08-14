@@ -172,7 +172,10 @@
 			{
 				this.$store.commit('filters/changePriceValue', newValue);
 			},
-			
+		},
+		created()
+		{
+			this.$store.dispatch('filters/calculateFiltersData');
 		}
 	}
 </script>

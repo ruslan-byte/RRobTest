@@ -21,7 +21,8 @@ export default [
 			'Кухня-гостиная'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '14581',
@@ -46,7 +47,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '14595',
@@ -71,7 +73,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '14600',
@@ -98,7 +101,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': '2'
 	},
 	{
 		'id': '14606',
@@ -124,7 +128,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': '2'
 	},
 	{
 		'id': '26263',
@@ -149,7 +154,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '26344',
@@ -174,7 +180,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '26376',
@@ -199,7 +206,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '29187',
@@ -224,7 +232,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '29225',
@@ -251,7 +260,8 @@ export default [
 			'Кухня-гостиная'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': '3'
 	},
 	{
 		'id': '29281',
@@ -276,7 +286,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '30264',
@@ -300,7 +311,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '30262',
@@ -325,7 +337,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': '1'
 	},
 	{
 		'id': '29260',
@@ -350,7 +363,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '29261',
@@ -375,7 +389,8 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': 'Ст'
 	},
 	{
 		'id': '29263',
@@ -401,6 +416,7 @@ export default [
 			'Совмещённый санузел'
 		],
 		'type': 'Квартира',
-		'saleTrigger': ''
+		'saleTrigger': '',
+		'roomCount': '2'
 	}
 ];
