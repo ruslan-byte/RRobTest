@@ -16,6 +16,7 @@ export default createStore({
       isHorizontal: false,
       list: cardList
     },
+    page: 1,
   },
   mutations: {
   	closePopup({popup})
@@ -38,8 +39,30 @@ export default createStore({
     {
       popup.data = newValue;
     },
+    pageChange(state, newValue)
+    {
+      state.page = newValue
+    }
   },
   getters: {
+    getMaxPage(state, getters)
+    {
+      return getters.getFilterCardListInPaginationType.length;
+    },
+    getPaginationFilterCardList({page}, getters)
+    {
+      return getters.getFilterCardListInPaginationType[page - 1]
+    },
+    getFilterCardListInPaginationType(state, getters)
+    {
+      let cardList = getters.getSortFilterCardList;
+      let size = 8;
+      let result = []; 
+      for (let i = 0; i <Math.ceil(cardList.length/size); i++){
+          result[i] = cardList.slice((i*size), (i*size) + size);
+      }
+      return result;
+    },
     getFilterCardListCount(state, getters)
     {
       return getters.getFilterCardList.length;

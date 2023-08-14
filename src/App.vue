@@ -15,7 +15,13 @@
 				</el-col>
 			</el-row>
 		</main>
-		<el-pagination class="app__pagination" layout="pager" :total="30" />
+		<el-pagination
+			@current-change="activePageChange"
+			class="app__pagination"
+			layout="pager"
+			:total="maxPage*10"
+		/>
+		{{activePage}}
 		<el-dialog
 			:modelValue="isPopupOpen"
 			:show-close="false"
@@ -58,12 +64,17 @@
 		computed:
 		{
 			cardList(){
-				return this.$store.getters.getSortFilterCardList;
-			}, 
+				return this.$store.getters.getPaginationFilterCardList;
+			},
+			maxPage()
+			{
+				return this.$store.getters.getMaxPage;
+			},
 			...mapState({
 					isPopupOpen: state => state.popup.isOpen,
 					isPopupSuccess: state => state.popup.isSuccess,
 					isCardHorizontal: state => state.card.isHorizontal,
+					activePage: state => state.page,
 			}),
 		},
 		methods:
@@ -71,6 +82,10 @@
 			closePopup()
 			{
 				this.$store.commit('closePopup');
+			},
+			activePageChange(newValue)
+			{
+				this.$store.commit('pageChange', newValue)
 			}
 		}
 	}

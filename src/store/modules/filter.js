@@ -107,7 +107,7 @@ export default {
 	},
 	actions:
 	{
-		calculateFiltersData({getters, commit})
+		async calculateFiltersData({getters, commit, dispatch})
 		{
 			commit('setSelectorOptions', ['residentialСomplex', getters.getComplexList])
 			commit('setSelectorOptions', ['litterNum', getters.getLiterNumList])
