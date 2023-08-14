@@ -161,33 +161,24 @@
 		},
 		methods:
 		{
-			calculatePageCount()
-			{
-				this.$store.dispatch('calculatePageCount');
-			},
 			changeResidentialСomplexSelectValue(newValue)
 			{
-				this.calculatePageCount();
 				this.$store.commit('filters/changeResidentialСomplexSelectValue', newValue);
 			},
 			changeLitterNumSelectValue(newValue)
 			{
-				this.calculatePageCount();
 				this.$store.commit('filters/changeLitterNumSelectValue', newValue);
 			},
 			changeRoomFilterValue(newValue)
 			{
-				this.calculatePageCount();
 				this.$store.commit('filters/changeRoomFilterValue', newValue);
 			},
 			changeAreaValue(newValue)
 			{
-				this.calculatePageCount();
 				this.$store.commit('filters/changeAreaValue', newValue);
 			},
 			changePriceValue(newValue)
 			{
-				this.calculatePageCount();
 				this.$store.commit('filters/changePriceValue', newValue);
 			},
 

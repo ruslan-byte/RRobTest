@@ -2,7 +2,7 @@
 	<div class="app container">
 		<Header class="app__header"/>
 		<main class="app__main">
-			<el-row class="app__row" :gutter="30">
+			<el-row class="app__row" :gutter="30" v-if="cardList?.length > 0">
 				<el-col
 					class="app__col"
 					v-for="(card, index) of cardList"
@@ -14,8 +14,11 @@
 					<Card :cardData="card"/>
 				</el-col>
 			</el-row>
+			<empty-page v-else>
+			</empty-page>
 		</main>
 		<el-pagination
+			v-if="cardList?.length > 0"
 			@current-change="activePageChange"
 			class="app__pagination"
 			layout="pager"
@@ -51,6 +54,7 @@
 	import PopupFooter from '@/components/PopupFooter.vue';
 	import PopupSuccess from '@/components/PopupSuccess.vue';
 	import { mapState } from 'vuex'
+	import EmptyPage from '@/components/EmptyPage.vue';
 	export default {
 		components: {
 			Header,
@@ -59,6 +63,7 @@
 			'popup-body': PopupBody,
 			'popup-footer': PopupFooter,
 			'popup-success': PopupSuccess,
+			'empty-page':EmptyPage
 		},
 		computed:
 		{

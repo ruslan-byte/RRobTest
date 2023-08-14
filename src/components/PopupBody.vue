@@ -136,7 +136,6 @@
 		&__main {width: max(360px, calc(50% - 45px) ); }
 		&__title 
 		{
-			line-height: 16px;
 			margin-bottom: 40px;
 		}
 		&__deadline {margin-bottom: 35px; }
