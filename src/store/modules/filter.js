@@ -6,7 +6,7 @@ export default {
 		cardList: cardList,
 		residentialСomplexSelect:
 		{
-			value: 0,
+			value: 'all',
 			options: [
 				{
 					value: 'all',

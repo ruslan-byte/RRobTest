@@ -1,6 +1,10 @@
 <template>
 	<header class="header">
-		<h2 class="header__title">Вам подходит 375 вариантов</h2>
+		<h2 class="header__title">Вам подходит
+			<template v-if="cardCount>=5">{{cardCount}} вариантов</template>
+			<template v-else-if="cardCount>2 || cardCount === 0">{{cardCount}} варианта</template>
+			<template v-else>{{cardCount}} вариант</template>
+		</h2>
 		<form @submit.prevent>
 			<el-row :gutter="30">
 				<el-col
@@ -146,8 +150,13 @@
 		}),
 		computed:
 		{
-			filters() {
+			filters()
+			{
 				return this.$store.state.filters;
+			},
+			cardCount()
+			{
+				return this.$store.getters.getFilterCardListCount;
 			}
 		},
 		methods:
