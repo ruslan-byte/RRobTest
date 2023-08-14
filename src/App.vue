@@ -21,7 +21,6 @@
 			layout="pager"
 			:total="maxPage*10"
 		/>
-		{{activePage}}
 		<el-dialog
 			:modelValue="isPopupOpen"
 			:show-close="false"
@@ -74,7 +73,6 @@
 					isPopupOpen: state => state.popup.isOpen,
 					isPopupSuccess: state => state.popup.isSuccess,
 					isCardHorizontal: state => state.card.isHorizontal,
-					activePage: state => state.page,
 			}),
 		},
 		methods:
